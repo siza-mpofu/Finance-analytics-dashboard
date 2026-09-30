@@ -84,6 +84,14 @@ This project is being developed in phases:
 2. Development
 3. Finalization
 
+## Project Documentation
+
+The project documentation is organized according to the three development phases:
+
+- [Conception Phase](docs/conception/)
+- [Development Phase](docs/development/)
+- [Finalization Phase](docs/finalization/)
+
 ## Author
 
 Sizalokuhle Mpofu
