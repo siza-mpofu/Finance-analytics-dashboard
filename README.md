@@ -86,4 +86,4 @@ This project is being developed in phases:
 
 ## Author
 
-Siza Mpofu
+Sizalokuhle Mpofu
