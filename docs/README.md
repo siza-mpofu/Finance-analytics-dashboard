@@ -1,6 +1,6 @@
-</> Markdown
-#Project doccumentation 
-This folder contains supporting doccumentation, and project materials for thr finance analytics dashboard 
+# Project Documentation
+
+This folder contains supporting documentation, diagrams, and project materials for the Finance Analytics Dashboard.
 
 
 
