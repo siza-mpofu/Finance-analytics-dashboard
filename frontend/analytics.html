@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Finance Dashboard</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-chart-pie me-2"></i>Finance Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-table me-1"></i>Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="analytics.html">
+                            <i class="fas fa-chart-line me-1"></i>Analytics
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3"><i class="fas fa-chart-pie me-2 text-primary"></i>Financial Analytics</h4>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-success shadow">
+                    <div class="card-body">
+                        <h6 class="card-title">Total Income</h6>
+                        <h3 id="totalIncomeDisplay">$0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger shadow">
+                    <div class="card-body">
+                        <h6 class="card-title">Total Expenses</h6>
+                        <h3 id="totalExpensesDisplay">$0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-info shadow">
+                    <div class="card-body">
+                        <h6 class="card-title">Net Savings</h6>
+                        <h3 id="netSavingsDisplay">$0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning shadow">
+                    <div class="card-body">
+                        <h6 class="card-title">Transaction Count</h6>
+                        <h3 id="transactionCount">0</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row">
+            <!-- Pie Chart -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-white">
+                        <h6 class="mb-0"><i class="fas fa-chart-pie me-2 text-primary"></i>Expenses by Category</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="pieChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-white">
+                        <h6 class="mb-0"><i class="fas fa-chart-bar me-2 text-primary"></i>Monthly Income vs Expenses</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="barChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-white">
+                        <h6 class="mb-0"><i class="fas fa-chart-line me-2 text-primary"></i>Spending Trends</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="lineChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
