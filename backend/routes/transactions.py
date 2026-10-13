@@ -60,6 +60,32 @@ def get_transactions():
     })
 
 
+@transactions_bp.route('/transactions/validate', methods=['GET'])
+def validate_transactions():
+    """Check whether transaction types match their category types."""
+    mismatches = []
+
+    transactions = Transaction.query.join(
+        Transaction.category
+    ).all()
+
+    for transaction in transactions:
+        if transaction.type != transaction.category.type:
+            mismatches.append({
+                'transaction_id': transaction.id,
+                'transaction_type': transaction.type,
+                'category': transaction.category.name,
+                'category_type': transaction.category.type
+            })
+
+    return jsonify({
+        'valid': len(mismatches) == 0,
+        'checked': len(transactions),
+        'mismatches': mismatches
+    })
+
+
+
 @transactions_bp.route('/transactions/<int:tx_id>', methods=['GET'])
 def get_transaction(tx_id):
     transaction = Transaction.query.get_or_404(tx_id)
