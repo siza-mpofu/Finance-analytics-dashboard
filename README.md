@@ -74,7 +74,88 @@ The database uses two core tables:
 - `categories`
 - `transactions`
 
-Each transaction is linked to a category using `category_id`. Transaction and category types are validated to prevent income transactions from being assigned to expense categories and vice versa.
+Each transaction is linked to a category using `category_id`. The application includes a validation endpoint that checks whether existing transactions have the same type as their associated categories and reports any mismatches.
+
+
+## Installation and Setup
+
+### 1. Prerequisites
+
+Before running the application, ensure the following are installed:
+
+- Python 3
+- MySQL Server
+- Git
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/siza-mpofu/Finance-analytics-dashboard.git
+cd Finance-analytics-dashboard
+```
+
+### 3. Create a Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 4. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Configure the Database
+
+- Create the MySQL database using `backend/db/schema.sql`.
+- Copy `backend/.env.example` to `backend/.env`.
+- Update the values in `backend/.env` with your own MySQL credentials. Set `DB_NAME` to `finance_dashboard` unless you intentionally use a different database.
+- Keep `backend/.env` private and never commit it to GitHub.
+- Ensure the database name matches the configuration.
+
+Do not commit your `.env` file or database passwords to GitHub.
+
+### 6. Populate the Database with Sample Data
+
+After creating the database and configuring `backend/.env`, run the sample data script from the project root:
+
+```bash
+python backend/seed_data.py
+```
+
+This script creates sample income and expense categories and transactions.
+
+**Warning:** Running this script deletes existing transactions and categories before inserting the sample data. Use it only when you intend to reset the database with sample data.
+
+
+### 7. Start the Backend
+
+From the project root, run:
+
+```bash
+cd backend
+python app.py
+```
+
+The Flask API should be available at:
+
+`http://127.0.0.1:5000`
+
+
+### 8. Open the Frontend
+
+Open `frontend/index.html` in a browser to access the transactions view. Open `frontend/analytics.html` to access the analytics view.
+
+The frontend requires the Flask backend and MySQL database to be running.
+
+
 
 ## Project Status
 
