@@ -200,7 +200,17 @@ $(document).ready(function() {
                 $('#totalIncomeDisplay').text('$' + totalIncome.toFixed(2));
                 $('#totalExpensesDisplay').text('$' + totalExpenses.toFixed(2));
                 $('#netSavingsDisplay').text('$' + netSavings.toFixed(2));
-                $('#transactionCount').text(count * 8); // rough estimate
+                $.ajax({
+    url: 'http://localhost:5000/api/transactions?limit=1&page=1',
+    type: 'GET',
+    success: function(response) {
+        $('#transactionCount').text(response.pagination.total);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error fetching transaction count:', error);
+        $('#transactionCount').text('Unavailable');
+    }
+});
             },
             error: function(xhr, status, error) {
                 console.error('Error loading summary cards:', error);
