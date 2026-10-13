@@ -7,6 +7,7 @@ $(document).ready(function() {
             dataSrc: 'data',
             data: function(d) {
                 return {
+                    draw: d.draw,
                     page: Math.floor(d.start / d.length) + 1,
                     limit: d.length,
                     sort: d.columns[d.order[0].column].data,
